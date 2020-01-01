@@ -109,9 +109,8 @@ export default class MultiSlider extends React.Component {
       positionOne: initialValues[0],
       positionTwo: initialValues[1],
     };
-  }
-
-  componentWillMount() {
+    
+    
     var customPanResponder = (start, move, end) => {
       return PanResponder.create({
         onStartShouldSetPanResponder: (evt, gestureState) => true,
@@ -137,9 +136,10 @@ export default class MultiSlider extends React.Component {
       this.moveTwo,
       this.endTwo,
     );
+
   }
 
-  componentWillReceiveProps(nextProps) {
+  UNSAFE_componentWillReceiveProps(nextProps) {
     if (this.state.onePressed || this.state.twoPressed) {
       return;
     }
